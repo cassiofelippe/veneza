@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "cadastros")
+@Document(collection = "clientes")
 public class Cliente {
     @Id
     private String _id;

@@ -1,17 +1,17 @@
 package br.com.cassio.veneza.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_METHOD;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_METHOD;
-import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @TestInstance(PER_METHOD)
 @SpringBootTest(webEnvironment = RANDOM_PORT)
@@ -22,17 +22,12 @@ public class ControllerIntegration {
     @Autowired
     private WebApplicationContext wac;
 
-    @Value("${spring.application.auth-url}")
-    private String authUrl;
-
     protected String json = "";
 
     protected static String token;
 
     @BeforeEach
     void setUp()  {
-//        token = getToken();
-        token = "";
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
     }
 
