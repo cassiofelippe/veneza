@@ -176,13 +176,11 @@
 				<activatedProperties>development</activatedProperties>
 
 				<!--	FORMS MONGODB CREDENTIALS	-->
-				<forms.datasource.host>${mongoHost}</forms.datasource.host>
-				<forms.datasource.port>27017</forms.datasource.port>
-				<forms.datasource.user/>
-				<forms.datasource.password/>
-				<forms.datasource.database>forms</forms.datasource.database>
-
-				<auth.url>http://localhost:8081</auth.url>
+				<veneza.datasource.host>${mongoHost}</veneza.datasource.host>
+				<veneza.datasource.port>27017</veneza.datasource.port>
+				<veneza.datasource.user/>
+				<veneza.datasource.password/>
+				<veneza.datasource.database>veneza</veneza.datasource.database>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
