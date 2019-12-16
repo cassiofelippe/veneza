@@ -21,8 +21,6 @@ request = function(route, type, body) {
     })
   }
   return created[type](`http://localhost:8080/${route}`, body).then((response) => {
-    console.log('response', response)
-
     return response.data;
   }, (e) => {
     // TODO check if is 401
@@ -43,6 +41,10 @@ http = {
 
   get(route) {
     return request(route, 'get')
+  },
+
+  post(route, body) {
+    return request(route, 'post', body)
   }
 }
 

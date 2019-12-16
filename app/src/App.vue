@@ -13,7 +13,9 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <router-view />
+    <b-col cols="12" style="height: 100px">&nbsp;</b-col>
+      <router-view />
+    </b-col>
   </div>
 </template>
 
@@ -30,7 +32,6 @@
         this.$router.push(route || '/').catch(e => e).then(() => {
           this.$router.go();
         });
-        // window.location.hash = `#/${route}`;
       }
     }
   };
@@ -46,7 +47,6 @@
     font-weight: 400 !important;
     line-height: 1.5 !important;
     color: #2e2e2e !important;
-    text-align: left !important;
     background-size: cover;
   }
 
@@ -82,5 +82,28 @@
   .logo {
     width: 100px;
     height: 100%;
+  }
+
+  .page-title-controls {
+    margin-left: auto;
+  }
+
+  button.btn-success {
+    color: black;
+    background-color: white;
+    border-color: black;
+  }
+
+  button.btn-success:focus {
+    color: black !important;
+    background-color: white !important;
+    border-color: black !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25) !important;
+  }
+
+  button.btn-success:hover {
+    color: black !important;
+    background-color: lightgrey !important;
+    border-color: black !important;
   }
 </style>
