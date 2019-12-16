@@ -22,8 +22,11 @@
           :items="model"
           @row-clicked="rowClicked"
           v-bind:style="{cursor: 'pointer'}">
-          <template v-slot:cell(identificacao.cpf)="data">
-            {{App.formatCpf(data.item.identificacao ? data.item.identificacao.cpf : '')}}
+          <template v-slot:cell(cpf)="data">
+            {{App.formatCpf(data.item.cpf ? data.item.cpf : '')}}
+          </template>
+          <template v-slot:cell(criadoEm)="data">
+            {{data.item.criadoEm.split('T')[0]}}
           </template>
         </b-table>
       </b-col>
@@ -50,6 +53,14 @@
           {
             key: 'nome',
             label: 'Nome'
+          },
+          {
+            key: 'telefone',
+            label: 'Telefone'
+          },
+          {
+            key: 'criadoEm',
+            label: 'Data de Registro'
           }
         ],
         model: [],
