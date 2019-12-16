@@ -46,4 +46,12 @@ public class ClienteIntegrationTest {
 
     	assertEquals("Cassio Luis Zamignan Forte Felippe", repository.findBy_id(id).getNome());
     }
+    
+    @Test
+    public void testCreateAndDelete() {
+		final Cliente cliente = new Cliente("63263338730", "Alan Jackson");
+        assertNotNull(repository.save(cliente));
+        repository.delete(cliente);
+    	assertEquals(null, repository.findFirstByCpf("63263338730"));
+    }
 }
