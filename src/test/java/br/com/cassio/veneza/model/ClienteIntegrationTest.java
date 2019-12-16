@@ -24,7 +24,7 @@ public class ClienteIntegrationTest {
 
 	@BeforeAll
     public void testCreate() {
-		final Cliente cliente = new Cliente("11048916979", "Cassio L Z F Felippe");
+		final Cliente cliente = new Cliente("11048916979", "Cassio L Z F Felippe", "49999076237");
         assertNotNull(repository.save(cliente));
     }
 
@@ -49,7 +49,7 @@ public class ClienteIntegrationTest {
     
     @Test
     public void testCreateAndDelete() {
-		final Cliente cliente = new Cliente("63263338730", "Alan Jackson");
+		final Cliente cliente = new Cliente("63263338730", "Alan Jackson", "1235550100");
         assertNotNull(repository.save(cliente));
         repository.delete(cliente);
     	assertEquals(null, repository.findFirstByCpf("63263338730"));

@@ -15,17 +15,20 @@ public class Cliente {
     private String cpf;
     
     private String nome;
+
+    private String telefone;
     
     private LocalDateTime criadoEm = now();
 
 	@Deprecated
 	public Cliente() {
-		this(null, null);
+		this(null, null, null);
 	}
 
-	public Cliente(final String cpf, final String nome) {
+	public Cliente(final String cpf, final String nome, final String telefone) {
 		this.cpf = cpf;
 		this.nome = nome;
+		this.telefone = telefone;
 		this.criadoEm = now();
     }
 
@@ -39,6 +42,10 @@ public class Cliente {
     
     public String getNome() {
     	return nome;
+    }
+    
+    public String getTelefone() {
+    	return telefone;
     }
     
     public void setNome(final String nome) {
