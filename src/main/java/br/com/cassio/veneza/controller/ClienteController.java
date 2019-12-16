@@ -5,6 +5,7 @@ import static org.apache.logging.log4j.LogManager.getLogger;
 import java.util.List;
 
 import org.apache.logging.log4j.Logger;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.cassio.veneza.model.Cliente;
 import br.com.cassio.veneza.repository.RepositoryCliente;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/clientes", produces = "application/json")
 public class ClienteController {
