@@ -63,7 +63,8 @@
           },
           {
             key: 'criadoEm',
-            label: 'Data de Registro'
+            label: 'Data de Registro',
+            sortable: true
           }
         ],
         model: [],
