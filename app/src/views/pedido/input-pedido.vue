@@ -58,12 +58,16 @@
 
     methods: {
       save() {
-        http.post('pedidos', this.model).then((response) => {
-          this.model = response;
-          this.$router.push({name: 'pedidos-show', params: {_id: this.model._id}}).catch(e => e).then(() => {
-            this.$router.go();
+        if (!this.model.cpf || !this.model.tipo || !this.model.valor) {
+          alert('Deve preencher todos os campos!');
+        } else {
+          http.post('pedidos', this.model).then((response) => {
+            this.model = response;
+            this.$router.push({name: 'pedidos-show', params: {_id: this.model._id}}).catch(e => e).then(() => {
+              this.$router.go();
+            });
           });
-        });
+        }
       },
 
       show(_id) {
