@@ -4,8 +4,8 @@
 
     <b-row>
       <b-col cols="12" sm="12" md="12" lg="6">
-        <label>Nome Completo</label>
-        <b-form-input id="cliente-nome-completo" :disabled="disabled" v-model="model.nomeCompleto" />
+        <label>Nome</label>
+        <b-form-input id="cliente-nome" :disabled="disabled" v-model="model.nome" />
       </b-col>
       
       <b-col cols="12" sm="12" md="6" lg="3">
@@ -47,7 +47,22 @@
     methods: {
       save() {
         http.post('clientes', this.model)
+      },
+
+      show(_id) {
+        http.get(`clientes/${_id}`).then(response => {
+          this.model = response;
+        });
       }
+    },
+
+    mounted() {
+      let _id = this.$route.params._id;
+      if (_id) {
+        this.show(_id)
+      }
+      
+      this.disabled = this.$route.path.includes('/show');
     }
   };
 </script>

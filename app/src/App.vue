@@ -7,7 +7,7 @@
       <b-navbar-toggle class="bars" target="nav-collapse"><font-awesome-icon icon="bars" class="bars" /></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item @click="index('cliente')" title="Listar clientes">
+          <b-nav-item @click="index('/cliente')" title="Listar clientes">
             <font-awesome-icon icon="user-edit"/><span>&nbsp;Cliente</span>
           </b-nav-item>
         </b-navbar-nav>
