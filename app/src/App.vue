@@ -10,6 +10,9 @@
           <b-nav-item @click="index('/cliente')" title="Listar clientes">
             <font-awesome-icon icon="user-edit"/><span>&nbsp;Cliente</span>
           </b-nav-item>
+          <b-nav-item @click="index('/pedido')" title="Listar pedidos">
+            <font-awesome-icon icon="file-alt"/><span>&nbsp;Pedido</span>
+          </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -70,6 +73,10 @@
       fone = insert(fone, '-', fone.length - 4);
       return fone;
     }
+  }
+
+  export function formatMoney(value) {
+    return value ?  'R$ '+(value/1).toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') : value;
   }
 </script>
 
@@ -137,5 +144,27 @@
     color: black !important;
     background-color: lightgrey !important;
     border-color: black !important;
+  }
+
+  .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #791129 !important;
+    border-color: #791129 !important;
+  }
+
+  .custom-control-label:hover {
+    cursor: pointer;
+  }
+
+  .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+    border-color: #759492 !important;
+  }
+
+  .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0.25rem 0.25rem #791129, inset 0 -1px 5px #791129;
+  }
+  
+  .custom-control-input:disabled:checked ~ label::before {
+    border-color: #6C757D !important;
+    background-color: #6C757D !important;
   }
 </style>
