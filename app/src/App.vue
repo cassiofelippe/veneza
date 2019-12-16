@@ -34,10 +34,42 @@
         });
       }
     }
-  };
+  }
 
   export function formatCpf(value) {
     return value ? value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g,'$1.$2.$3-$4') : value;
+  }
+
+  export function formatDate(date) {
+    if (!date || typeof date !== 'string') {
+      return date;
+    } else {
+      let onlyDate = date.split('T')[0].split('-'), onlyTime = date.split('T')[1].split('.')[0];
+      return `${onlyDate[2]}/${onlyDate[1]}/${onlyDate[0]} ${onlyTime.split(':')[0]}:${onlyTime.split(':')[1]}`;
+    }
+  }
+  
+  export function formatFone(fone) {
+    const insert = function (main_string, ins_string, pos) {
+      if(typeof(pos) == 'undefined') {
+        pos = 0;
+      }
+
+      if(typeof(ins_string) == 'undefined') {
+        ins_string = '';
+      }
+   
+      return main_string.slice(0, pos) + ins_string + main_string.slice(pos);
+    };
+
+    if (!fone || typeof fone !== 'string') {
+      return fone;
+    } else {
+      fone = insert(fone, '(', 0);
+      fone = insert(fone, ') ', 3);
+      fone = insert(fone, '-', fone.length - 4);
+      return fone;
+    }
   }
 </script>
 

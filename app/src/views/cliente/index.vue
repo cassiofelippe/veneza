@@ -25,8 +25,11 @@
           <template v-slot:cell(cpf)="data">
             {{App.formatCpf(data.item.cpf ? data.item.cpf : '')}}
           </template>
+          <template v-slot:cell(telefone)="data">
+            {{App.formatFone(data.item.telefone)}}
+          </template>
           <template v-slot:cell(criadoEm)="data">
-            {{data.item.criadoEm.split('T')[0]}}
+            {{App.formatDate(data.item.criadoEm)}}
           </template>
         </b-table>
       </b-col>

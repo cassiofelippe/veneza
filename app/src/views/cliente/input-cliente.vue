@@ -20,7 +20,12 @@
 
       <b-col cols="12" sm="12" md="12" lg="12">&nbsp;</b-col>
 
-      <b-col cols="12" class="text-right" v-if="!disabled">
+      <b-col cols="12" class="text-right" v-if="disabled">
+        <b-button id="cliente-edit" @click="edit" type="submit" size="sm" squared variant="success" title="Editar">
+          <font-awesome-icon icon="save"/>&nbsp;Editar
+        </b-button>
+      </b-col>
+      <b-col cols="12" class="text-right" v-else>
         <b-button id="cliente-save" @click="save" type="submit" size="sm" squared variant="success" title="Salvar">
           <font-awesome-icon icon="save"/>&nbsp;Salvar
         </b-button>
@@ -46,13 +51,23 @@
 
     methods: {
       save() {
-        http.post('clientes', this.model)
+        http.post('clientes', this.model).then((response) => {
+          this.model = response;
+          this.$router.push({name: 'clientes-show', params: {_id: this.$route.params._id}}).catch(e => e).then(() => {
+            this.$router.go();
+          });
+        });
       },
 
       show(_id) {
-        http.get(`clientes/${_id}`).then(response => {
+        http.get(`/clientes/${_id}`).then(response => {
           this.model = response;
         });
+      },
+
+      edit() {
+        this.$router.push({name: 'clientes-edit', params: {_id: this.$route.params._id}});
+        this.disabled = false;
       }
     },
 
